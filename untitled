@@ -1,0 +1,44 @@
+
+$tab = "CREATE TABLE IF NOT EXISTS br_auth (
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+br_name TEXT NOT NULL,
+br_ver TEXT NOT NULL,
+status TEXT NOT NULL,
+time_stamp DATETIME NOT NULL
+
+)";
+$re = mysql_query($tab);
+if(!$re){
+	echo "failed to create table!! ";
+	exit();
+	}
+
+$sele = "SELECT * FROM br_auth WHERE br_name='$br'";
+$quy = mysql_query($sele);
+if(!$quy){
+	echo "failed select ";
+	
+	}
+$num = mysql_num_rows($quy);
+
+if($num == 1){
+
+			$up = "INSERT INTO br_auth (id ,br_name, br_ver , status , time_stamp) VALUES('$br' ,'$vers' , 'enabled' ,now())";
+		$up = "UPDATE br_auth SET br";
+		$query = mysql_query($up);
+		if($query){
+			 echo "Browser updated";
+			
+			}
+			else{
+				echo "failed to update query!!";
+				
+				}
+	}
+	else{
+		
+	echo "The browser does not exists!";
+		
+		
+		}
+

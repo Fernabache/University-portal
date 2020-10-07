@@ -1,0 +1,32 @@
+<?php
+require_once('config.php');
+$db = "SELECT * FROM full_result_mode WHERE id='1'";
+$qu = mysql_query($db);
+$num = mysql_num_rows($qu);
+$fet = mysql_fetch_array($qu);
+if($num != 0){
+$p = $fet['status'];
+if($p == "enable"){
+
+?><?php
+
+
+
+}
+elseif($p == "disable"){
+
+
+}
+else{
+$msg="<b></b>";
+echo $msg;
+
+
+}
+}
+else{
+$msg="<b>No status</b>";
+echo $msg;
+
+}
+?>
